@@ -26,8 +26,6 @@ public class UnitMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        Debug.Log(navMeshAgent.remainingDistance);
-        Debug.Log(target.radius);
         if (navMeshAgent.remainingDistance < target.radius)
         {
             UnitDestination[] dests = FindObjectsOfType<UnitDestination>();
