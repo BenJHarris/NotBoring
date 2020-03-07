@@ -60,7 +60,7 @@ public class Placeable : MonoBehaviour
 
     private void FixedUpdate()
     {
-        int layerMask = 1 << 8;
+        int layerMask = (1 << 8) | (1 << 10);
 
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxSize, 0, layerMask);
         placeable = hits.Length == 1;
