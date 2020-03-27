@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceNode : MonoBehaviour
+public abstract class ResourceNode : MonoBehaviour
 {
 
     public int startAmount;
     public int currentAmount;
-    public string resourceType;
-    public int harvestRange = 1;
+
+    private Animator animator;
+
+    protected virtual void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetInteger("currentAmount", currentAmount);
+    }
 
     // returns amount harvested
-    public int harvest(int amount)
+    public int Harvest(int amount)
     {
         if (currentAmount >= amount)
         {
@@ -21,6 +27,10 @@ public class ResourceNode : MonoBehaviour
             amount = currentAmount;
             currentAmount = 0;
         }
+
+        animator.SetInteger("currentAmount", currentAmount);
         return amount;
     }
+
+
 }

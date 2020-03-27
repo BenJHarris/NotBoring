@@ -6,14 +6,14 @@ using UnityEngine.AI;
 public class UnitMovement : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
-    public UnitDestination target;
+    public Vector2 target;
     public SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-        navMeshAgent.destination = target.transform.position;
+        navMeshAgent.destination = target;
     }
 
     private void Update()
@@ -25,17 +25,24 @@ public class UnitMovement : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+    }
 
-        if (navMeshAgent.remainingDistance < target.radius)
-        {
-            UnitDestination[] dests = FindObjectsOfType<UnitDestination>();
-            target = dests[Random.Range(0, dests.Length)];
-            navMeshAgent.SetDestination(target.transform.position);
-        }
+    public void SetDestination(Vector2 destination)
+    {
+        target = destination;
+        navMeshAgent.destination = destination;
+    }
+
+    public void StopMovement()
+    {
+        navMeshAgent.isStopped = true;
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawLine(transform.position, target.transform.position);
+        if (target != null)
+        {
+            Gizmos.DrawLine(transform.position, target);
+        }
     }
 }

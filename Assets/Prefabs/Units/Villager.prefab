@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &2756304114686877076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 2756304114686877079}
-  target: {fileID: 0}
+  target: {x: 0, y: 0}
   spriteRenderer: {fileID: 2756304114551817513}
 --- !u!195 &2756304114686877079
 NavMeshAgent:
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speechPrefab: {fileID: 203876646542913462, guid: fb015cba0c7a47148a147e6b74caa4a5,
     type: 3}
-  speechOffset: {x: 0, y: 1, z: 0}
+  speechOffset: {x: 0, y: 2, z: 0}
 --- !u!114 &3267928028778737534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,8 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58145932454dad94ea06f463e3b010e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTask: nothing
-  unitSpeech: {fileID: 3028017869480347048}
+  currentTask: 
+  interactionRange: 2
+  harvestAmount: 10
 --- !u!95 &7182972094011911362
 Animator:
   serializedVersion: 3
