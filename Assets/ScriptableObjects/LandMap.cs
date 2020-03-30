@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Land Map", menuName = "Land Map", order = 52)]
+[CreateAssetMenu(fileName = "New Land Map", menuName = "Land Map", order = 53)]
 public class LandMap : ScriptableObject
 {
 

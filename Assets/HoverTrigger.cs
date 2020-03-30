@@ -1,32 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class HoverTrigger : MonoBehaviour
+public class HoverTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 
-    private Camera cam;
+    public GameObject addButtonPrefab;
+    public GameObject landPrefab;
+    private GameObject currentButtonInstance;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        cam = Camera.main;
+        if (currentButtonInstance != null)
+        {
+            Destroy(currentButtonInstance);
+            currentButtonInstance = null;
+        }
+        currentButtonInstance = Instantiate(addButtonPrefab, transform);
     }
 
-    // Update is called once per frame
-    void Update()
+    //Detect when Cursor leaves the GameObject
+    public void OnPointerExit(PointerEventData pointerEventData)
     {
-        Vector2 position = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        Collider2D[] hits = Physics2D.OverlapPointAll(position);
-
-        foreach (Collider2D h in hits)
+        if (currentButtonInstance != null)
         {
-            AddPrefabOnHover p = h.GetComponent<AddPrefabOnHover>();
-            if (p != null)
-            {
-                p.Show();
-            }
+            Destroy(currentButtonInstance);
+            currentButtonInstance = null;
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameObject go = Instantiate(landPrefab, transform.parent.transform);
+        go.transform.localPosition = transform.localPosition;
+        Destroy(this.gameObject);
     }
 }

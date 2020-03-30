@@ -6,8 +6,7 @@ public class AddPrefabOnHover : MonoBehaviour
 {
 
     public GameObject prefab;
-
-    public GameObject currentInstance;
+    private GameObject currentInstance;
 
     private bool show = false;
 
