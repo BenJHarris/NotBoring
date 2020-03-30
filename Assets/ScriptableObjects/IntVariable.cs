@@ -6,13 +6,25 @@ using UnityEngine;
 public class IntVariable : ScriptableObject, ISerializationCallbackReceiver
 {
     public int InitialValue;
+    public GameEvent updateEvent;
 
-    [System.NonSerialized]
-    public int RuntimeValue;
+    private int _runtimeValue;
+
+    public int RuntimeValue
+    {
+        get => _runtimeValue;
+        set {
+            _runtimeValue = value;
+            if (updateEvent != null)
+            {
+                updateEvent.Raise();
+            }
+        }
+    }
 
     public void OnAfterDeserialize()
     {
-        RuntimeValue = InitialValue;
+        _runtimeValue = InitialValue;
     }
 
     public void OnBeforeSerialize() { }

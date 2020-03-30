@@ -8,9 +8,11 @@ public class UnitMovement : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Vector2 target;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
 
     private void Start()
     {
+        
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
         navMeshAgent.destination = target;
@@ -18,10 +20,11 @@ public class UnitMovement : MonoBehaviour
 
     private void Update()
     {
-        if (navMeshAgent.velocity.x > 0.1f)
+        animator.SetFloat("Speed", navMeshAgent.velocity.x);
+        if (navMeshAgent.velocity.x > 0.01f)
         {
             spriteRenderer.flipX = true;
-        } else
+        } else if (navMeshAgent.velocity.x < -0.01f)
         {
             spriteRenderer.flipX = false;
         }
@@ -36,6 +39,11 @@ public class UnitMovement : MonoBehaviour
     public void StopMovement()
     {
         navMeshAgent.isStopped = true;
+    }
+
+    public void StartMovement()
+    {
+        navMeshAgent.isStopped = false;
     }
 
     private void OnDrawGizmosSelected()

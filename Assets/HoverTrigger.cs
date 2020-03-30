@@ -7,11 +7,17 @@ public class HoverTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
 
     public GameObject addButtonPrefab;
-    public GameObject landPrefab;
     private GameObject currentButtonInstance;
+    private Sea sea;
+
+    private void Start()
+    {
+        sea = GetComponent<Sea>();
+    }
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
+        Debug.Log("Pointer entered");
         if (currentButtonInstance != null)
         {
             Destroy(currentButtonInstance);
@@ -23,6 +29,7 @@ public class HoverTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     //Detect when Cursor leaves the GameObject
     public void OnPointerExit(PointerEventData pointerEventData)
     {
+        Debug.Log("Pointer exited");
         if (currentButtonInstance != null)
         {
             Destroy(currentButtonInstance);
@@ -32,8 +39,7 @@ public class HoverTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameObject go = Instantiate(landPrefab, transform.parent.transform);
-        go.transform.localPosition = transform.localPosition;
-        Destroy(this.gameObject);
+        Debug.Log("Pointer clicked");
+        sea.PurchaseLand();
     }
 }

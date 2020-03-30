@@ -9,12 +9,12 @@ public class WaterWobble : MonoBehaviour
 
     private void Start()
     {
-        originalY = transform.position.y; ;
+        originalY = transform.localPosition.y; ;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x, originalY + Mathf.Sin(Time.time) * 0.2f);
+        transform.localPosition = new Vector2(transform.localPosition.x, originalY + Mathf.Sin(Time.time) * 0.2f);
     }
 }

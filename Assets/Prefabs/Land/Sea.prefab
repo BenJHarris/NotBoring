@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 6680763126461054544}
   - component: {fileID: 2152664989115484010}
   - component: {fileID: -4027582198199630036}
+  - component: {fileID: 6264582950964088835}
   m_Layer: 11
   m_Name: Sea
   m_TagString: Untagged
@@ -145,7 +146,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cebac5a8f84e6241af0194a7cbbf09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addButtonPrefab: {fileID: 2245743387510184781, guid: a7c2e2b97e3e05b4f929cac41a516e26,
+  addButtonPrefab: {fileID: 1395303871717031128, guid: 979d94b0ff2aa0a4a86d6cfc4e8baa86,
     type: 3}
+--- !u!114 &6264582950964088835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420848534233155960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08785b7459a001449bc49d978f521112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   landPrefab: {fileID: 7420848534233155960, guid: 11d59c4cd3e33264899cf2a261de0bb9,
     type: 3}
+  goldVariable: {fileID: 11400000, guid: b6b953cfe28a4c84ea591faad12c187b, type: 2}
+  landPrice: {fileID: 11400000, guid: e1b596e453683474bbb4119e876d29b4, type: 2}

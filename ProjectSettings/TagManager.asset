@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Foliage
   - Building
+  - Land
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Foliage
   - Boundary
   - Click
-  - 
+  - Land
   - 
   - 
   - 

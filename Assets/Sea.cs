@@ -6,10 +6,19 @@ public class Sea : MonoBehaviour
 {
     public GameObject landPrefab;
 
+    public IntVariable goldVariable;
+    public IntVariable landPrice;
+
     public void PurchaseLand()
     {
-        GameObject go = Instantiate(landPrefab, transform.parent.transform);
-        go.transform.localPosition = transform.localPosition;
-        Destroy(this.gameObject);
+        if (goldVariable.RuntimeValue >= landPrice.RuntimeValue)
+        {
+            goldVariable.RuntimeValue -= landPrice.RuntimeValue;
+            landPrice.RuntimeValue *= 2;
+
+            GameObject go = Instantiate(landPrefab, transform.parent.transform);
+            go.transform.localPosition = transform.localPosition;
+            Destroy(this.gameObject);
+        }
     }
 }
