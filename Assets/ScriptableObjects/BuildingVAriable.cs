@@ -7,7 +7,6 @@ public class BuildingVariable : ScriptableObject, ISerializationCallbackReceiver
 {
     public Building InitialValue;
 
-    [System.NonSerialized]
     public Building RuntimeValue;
 
     public void OnAfterDeserialize()
