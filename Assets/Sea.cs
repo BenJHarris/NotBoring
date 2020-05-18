@@ -8,6 +8,9 @@ public class Sea : MonoBehaviour
 
     public IntVariable goldVariable;
     public IntVariable landPrice;
+    public IntVariable landPurchased;
+
+    public GameEvent eightPurchased;
 
     public void PurchaseLand()
     {
@@ -15,6 +18,12 @@ public class Sea : MonoBehaviour
         {
             goldVariable.RuntimeValue -= landPrice.RuntimeValue;
             landPrice.RuntimeValue *= 2;
+
+            landPurchased.RuntimeValue++;
+            if (landPurchased.RuntimeValue == 8)
+            {
+                eightPurchased.Raise();
+            }
 
             GameObject pf = landPrefabs[Random.Range(0, landPrefabs.Count)];
 

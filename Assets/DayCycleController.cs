@@ -8,6 +8,8 @@ public class DayCycleController : MonoBehaviour
     public float timeOfDayMax = 60;
     public GameEvent newDayEvent;
 
+    public GameEvent tenDaysReached;
+
     public IntVariable day;
     public FloatVariable time;
 
@@ -20,6 +22,10 @@ public class DayCycleController : MonoBehaviour
         if (time.RuntimeValue >= timeOfDayMax)
         {
             day.RuntimeValue++;
+            if (day.RuntimeValue >= 10)
+            {
+                tenDaysReached.Raise();
+            }
             time.RuntimeValue = 0;
         }
 

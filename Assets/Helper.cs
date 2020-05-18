@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Helper : MonoBehaviour
 {
+
+    private void Start()
+    {
+        Pause();
+    }
+
     public void Pause()
     {
         Time.timeScale = 0.0f;

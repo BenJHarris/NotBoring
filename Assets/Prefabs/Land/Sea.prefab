@@ -165,3 +165,5 @@ MonoBehaviour:
   - {fileID: 7420848534233155960, guid: e24cae9fa4808a9449e3d209eb2da1c8, type: 3}
   goldVariable: {fileID: 11400000, guid: b6b953cfe28a4c84ea591faad12c187b, type: 2}
   landPrice: {fileID: 11400000, guid: e1b596e453683474bbb4119e876d29b4, type: 2}
+  landPurchased: {fileID: 11400000, guid: b3f93103b3f1fc9469024e1a6d3b18ff, type: 2}
+  eightPurchased: {fileID: 11400000, guid: 4b287ca52a05a204f8b2d87c61612743, type: 2}

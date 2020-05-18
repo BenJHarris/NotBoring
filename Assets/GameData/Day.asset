@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabbcad5e914af841bf6f1a94e6a98c3, type: 3}
   m_Name: Day
   m_EditorClassIdentifier: 
-  InitialValue: 0
+  InitialValue: 8
   updateEvent: {fileID: 11400000, guid: 04faa5dd0456f404e877c7a1ba84eaf2, type: 2}
