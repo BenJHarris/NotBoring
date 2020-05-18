@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landMap: {fileID: 11400000, guid: 72fddaec57a25fb44b7566f66c985bbb, type: 2}
-  landPrefab: {fileID: 7420848534233155960, guid: 11d59c4cd3e33264899cf2a261de0bb9,
-    type: 3}
+  landPrefabs:
+  - {fileID: 7420848534233155960, guid: 11d59c4cd3e33264899cf2a261de0bb9, type: 3}
+  - {fileID: 7420848534233155960, guid: e24cae9fa4808a9449e3d209eb2da1c8, type: 3}
   seaPrefab: {fileID: 7420848534233155960, guid: f07ed45a4a3bf424b8c07169cb86f337,
     type: 3}
   tileSize: 8

@@ -20,7 +20,7 @@ public class UnitMovement : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("Speed", navMeshAgent.velocity.x);
+        animator.SetFloat("Speed", navMeshAgent.velocity.sqrMagnitude / 10);
         if (navMeshAgent.velocity.x > 0.01f)
         {
             spriteRenderer.flipX = true;

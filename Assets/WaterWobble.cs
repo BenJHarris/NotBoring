@@ -6,6 +6,7 @@ public class WaterWobble : MonoBehaviour
 {
 
     private float originalY;
+    public float intensity = 1.0f;
 
     private void Start()
     {
@@ -15,6 +16,6 @@ public class WaterWobble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = new Vector2(transform.localPosition.x, originalY + Mathf.Sin(Time.time) * 0.2f);
+        transform.localPosition = new Vector2(transform.localPosition.x, originalY + Mathf.Sin(Time.time) * 0.2f * intensity);
     }
 }

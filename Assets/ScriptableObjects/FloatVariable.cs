@@ -6,12 +6,26 @@ using UnityEngine;
 public class FloatVariable : ScriptableObject, ISerializationCallbackReceiver
 {
     public float InitialValue;
+    public GameEvent updateEvent;
 
-    public float RuntimeValue;
+    private float _runtimeValue;
+
+    public float RuntimeValue
+    {
+        get => _runtimeValue;
+        set
+        {
+            _runtimeValue = value;
+            if (updateEvent != null)
+            {
+                updateEvent.Raise();
+            }
+        }
+    }
 
     public void OnAfterDeserialize()
     {
-        RuntimeValue = InitialValue;
+        _runtimeValue = InitialValue;
     }
 
     public void OnBeforeSerialize() { }

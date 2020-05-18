@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -2870159476156396672}
   - component: {fileID: 2023424842743514384}
   - component: {fileID: 5249696335478496058}
+  - component: {fileID: 2621973377468853848}
   m_Layer: 8
   m_Name: Castle
   m_TagString: Building
@@ -140,8 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c585a66987e335e47b0891e297d2dd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingList: {fileID: 11400000, guid: ffb152b91b767c546ade7006e3265b6a, type: 2}
   sr: {fileID: 8923208271289478244}
+  spawnUnitPrefab: {fileID: 2756304114551817504, guid: 7f4d1540f09f34549b8836aec82ff558,
+    type: 3}
+  spawnUnitCost: 200
+  spawnUnitName: Solider
 --- !u!114 &2023424842743514384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +182,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2023424842743514384}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Unselect
         m_Mode: 1
         m_Arguments:
@@ -188,6 +193,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2621973377468853848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093159542466155183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aecaad08bfeb7eb42b04f72a3990a42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  woodCount: {fileID: 11400000, guid: 9ef799530aab3e94db213f3628def9c9, type: 2}
+  amount: 100
 --- !u!1 &8923208271289478246
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,10 +253,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

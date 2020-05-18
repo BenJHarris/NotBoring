@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sea : MonoBehaviour
 {
-    public GameObject landPrefab;
+    public List<GameObject> landPrefabs;
 
     public IntVariable goldVariable;
     public IntVariable landPrice;
@@ -16,7 +16,9 @@ public class Sea : MonoBehaviour
             goldVariable.RuntimeValue -= landPrice.RuntimeValue;
             landPrice.RuntimeValue *= 2;
 
-            GameObject go = Instantiate(landPrefab, transform.parent.transform);
+            GameObject pf = landPrefabs[Random.Range(0, landPrefabs.Count)];
+
+            GameObject go = Instantiate(pf, transform.parent.transform);
             go.transform.localPosition = transform.localPosition;
             Destroy(this.gameObject);
         }

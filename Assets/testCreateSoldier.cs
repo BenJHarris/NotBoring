@@ -7,14 +7,16 @@ public class testCreateSoldier : MonoBehaviour
 
     public BuildingVariable building;
     public IntVariable gold;
-    public GameObject soldierPrefab;
     
     public void CreateSolider()
     {
-        if (gold.RuntimeValue >= 100)
+
+        Building b = building.RuntimeValue;
+
+        if (gold.RuntimeValue >= b.spawnUnitCost)
         {
-            Instantiate(soldierPrefab, building.RuntimeValue.gameObject.transform.position, Quaternion.identity);
-            gold.RuntimeValue -= 100;
+            Instantiate(b.spawnUnitPrefab, building.RuntimeValue.gameObject.transform.position + new Vector3(0, -0.3f), Quaternion.identity);
+            gold.RuntimeValue -= b.spawnUnitCost;
         }
     }
 }

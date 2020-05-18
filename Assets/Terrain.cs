@@ -7,7 +7,7 @@ public class Terrain : MonoBehaviour
 {
     public LandMap landMap;
 
-    public GameObject landPrefab;
+    public List<GameObject> landPrefabs;
     public GameObject seaPrefab;
 
     public int tileSize = 8;
@@ -46,7 +46,7 @@ public class Terrain : MonoBehaviour
                     currentPrefab = seaPrefab;
                     break;
                 case 1:
-                    currentPrefab = landPrefab;
+                    currentPrefab = landPrefabs[0];
                     break;
                 default:
                     currentPrefab = seaPrefab;

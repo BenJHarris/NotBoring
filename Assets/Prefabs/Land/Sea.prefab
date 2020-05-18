@@ -160,7 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08785b7459a001449bc49d978f521112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landPrefab: {fileID: 7420848534233155960, guid: 11d59c4cd3e33264899cf2a261de0bb9,
-    type: 3}
+  landPrefabs:
+  - {fileID: 7420848534233155960, guid: 11d59c4cd3e33264899cf2a261de0bb9, type: 3}
+  - {fileID: 7420848534233155960, guid: e24cae9fa4808a9449e3d209eb2da1c8, type: 3}
   goldVariable: {fileID: 11400000, guid: b6b953cfe28a4c84ea591faad12c187b, type: 2}
   landPrice: {fileID: 11400000, guid: e1b596e453683474bbb4119e876d29b4, type: 2}

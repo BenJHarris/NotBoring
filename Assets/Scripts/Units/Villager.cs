@@ -8,8 +8,11 @@ public class Villager : MonoBehaviour
 
     private UnitSpeech unitSpeech;
     private UnitMovement unitMovement;
+    public GameObject harvestIcon;
 
     public GatherWood job;
+
+    public AudioSource harvestAudio;
 
     public float interactionRange = 2f;
     public int harvestAmount = 10;
@@ -17,23 +20,10 @@ public class Villager : MonoBehaviour
     private void Start()
     {
         unitMovement = GetComponent<UnitMovement>();
+        StopMoving();
         unitSpeech = GetComponent<UnitSpeech>();
-
-        job = new GatherWood(this);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("b"))
-        {
-            unitSpeech.Say("hello");
-        }
-
-        if (Input.GetKeyDown("c"))
-        {
-            unitSpeech.Say("THERE");
-        }
-    }
 
     private void FixedUpdate()
     {
@@ -53,6 +43,11 @@ public class Villager : MonoBehaviour
         unitMovement.StopMovement();
     }
 
+    public void startMoving()
+    {
+        unitMovement.StartMovement();
+    }
+
     public void SetDestination(Vector2 dest)
     {
         unitMovement.SetDestination(dest);
@@ -63,23 +58,33 @@ public class Villager : MonoBehaviour
         unitSpeech.Say(message);
     }
 
+    public void DisplayHarvestIcon(bool display)
+    {
+        harvestIcon.gameObject.SetActive(display);
+    }
+
     public Tree FindClosestTree()
     {
         Tree[] trees = FindObjectsOfType<Tree>();
 
-        Tree targetTree = trees[0];
+        float shortestDistance = float.MaxValue;
 
-        float shortestDistance = Vector2.Distance(transform.position, targetTree.transform.position);
+        Tree targetTree = null;
 
         foreach (Tree tree in trees)
         {
-            if (Vector2.Distance(transform.position, tree.transform.position) < shortestDistance)
+            float distanceToTree = Vector2.Distance(transform.position, tree.transform.position);
+
+            if ( distanceToTree < shortestDistance)
             {
-                shortestDistance = Vector2.Distance(transform.position, tree.transform.position);
-                targetTree = tree;
+                
+                if (tree.currentAmount > 0)
+                {
+                    shortestDistance = distanceToTree;
+                    targetTree = tree;
+                }
             }
         }
-
         return targetTree;
     }
 

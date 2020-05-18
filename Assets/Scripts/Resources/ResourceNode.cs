@@ -32,5 +32,11 @@ public abstract class ResourceNode : MonoBehaviour
         return amount;
     }
 
+    public void Reset()
+    {
+        currentAmount = startAmount;
+        animator.SetInteger("currentAmount", currentAmount);
+    }
+
 
 }
